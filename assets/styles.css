@@ -52,6 +52,8 @@ a:hover { text-decoration: underline; }
   align-items: center;
   justify-content: space-between;
   padding: 14px 0;
+  gap: 18px;
+  flex-wrap: wrap;
 }
 
 .brand {
@@ -60,6 +62,12 @@ a:hover { text-decoration: underline; }
   gap: 10px;
   font-weight: 700;
   letter-spacing: 0.2px;
+}
+
+.brand-logo {
+  display: block;
+  height: 160px;
+  width: auto;
 }
 
 .brand-mark {
@@ -75,10 +83,11 @@ a:hover { text-decoration: underline; }
 .brand-text { font-size: 16px; }
 
 .nav-links {
-  display: none;
+  display: flex;
   gap: 18px;
   color: var(--muted);
   font-weight: 500;
+  flex-wrap: wrap;
 }
 
 .nav-cta { display: flex; gap: 10px; }
@@ -391,13 +400,39 @@ input[type="email"]:focus { border-color: rgba(124,92,255,0.65); }
 }
 
 .footer-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+  display: grid;
+  gap: 14px;
 }
 
 .brand-footer { opacity: 0.92; }
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-tagline {
+  margin: 0;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  font-size: 14px;
+}
+
+.footer-links a {
+  color: var(--muted);
+}
+
+.footer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
 
 .sr-only {
   position: absolute;
@@ -412,7 +447,10 @@ input[type="email"]:focus { border-color: rgba(124,92,255,0.65); }
 }
 
 @media (min-width: 860px) {
-  .nav-links { display: flex; }
+  .footer-inner {
+    grid-template-columns: 2fr 2fr 1fr;
+    align-items: center;
+  }
   .hero-grid { grid-template-columns: 1.05fr 0.95fr; }
   .trust { grid-template-columns: repeat(3, 1fr); }
   .steps { grid-template-columns: repeat(3, 1fr); }
@@ -428,4 +466,35 @@ input[type="email"]:focus { border-color: rgba(124,92,255,0.65); }
     align-items: start;
   }
   .form-note, .form-status { grid-column: 1 / -1; }
+}
+
+@media (max-width: 600px) {
+  .nav {
+    padding: 10px 0;
+  }
+
+  .hero {
+    padding: 40px 0 24px;
+  }
+
+  h1 {
+    font-size: clamp(26px, 7.4vw, 34px);
+  }
+
+  .lede {
+    font-size: 16px;
+  }
+
+  .section {
+    padding: 40px 0;
+  }
+
+  .hero-card {
+    max-width: 420px;
+    margin-inline: auto;
+  }
+
+  .cta {
+    padding: 16px;
+  }
 }
